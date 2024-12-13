@@ -1,87 +1,61 @@
 #include <iostream>
 using namespace std;
 
-class Computer {
-public:
-    void processorIsWork() {
-        cout << "Processor Work" << endl;
-    }
-    void graphicsCardIsWork() {
-        cout << "Graphics Card Work" << endl;
-    }
-    void motherboardIsWork() {
-        cout << "Motherboard Work" << endl;
-    }
-    void ramIsWork() {
-        cout << "RAM Work" << endl;
-    }
-    void hardDriveIsWork() {
-        cout << "Hard Drive Work" << endl;
-    }
-};
-
 class Processor {
-private:
-    Computer engine;
 public:
-    void printer() {
-        engine.processorIsWork();
+    void work() {
+        cout << "Processor Work" << endl;
     }
 };
 
 class GraphicsCard {
-private:
-    Computer engine;
 public:
-    void printer() {
-        engine.graphicsCardIsWork();
+    void work() {
+        cout << "Graphics Card Work" << endl;
     }
 };
 
 class Motherboard {
-private:
-    Computer engine;
 public:
-    void printer() {
-        engine.motherboardIsWork();
+    void work() {
+        cout << "Motherboard Work" << endl;
     }
 };
 
 class RAM {
-private:
-    Computer engine;
 public:
-    void printer() {
-        engine.ramIsWork();
+    void work() {
+        cout << "RAM Work" << endl;
     }
 };
 
 class HardDrive {
-private:
-    Computer engine;
 public:
-    void printer() {
-        engine.hardDriveIsWork();
+    void work() {
+        cout << "Hard Drive Work" << endl;
+    }
+};
+
+class Computer {
+private:
+    Processor processor;        
+    GraphicsCard graphicsCard;  
+    Motherboard motherboard;    
+    RAM ram;                    
+    HardDrive hardDrive;        
+
+public:
+    void start() {
+        cout << "start:" << endl;
+        processor.work();
+        graphicsCard.work();
+        motherboard.work();
+        ram.work();
+        hardDrive.work();
     }
 };
 
 void main() {
-    Processor processorObj;
-    processorObj.printer();
-    cout << endl;
-
-    GraphicsCard graphicsCardObj;
-    graphicsCardObj.printer();
-    cout << endl;
-
-    Motherboard motherboardObj;
-    motherboardObj.printer();
-    cout << endl;
-
-    RAM ramObj;
-    ramObj.printer();
-    cout << endl;
-
-    HardDrive hardDriveObj;
-    hardDriveObj.printer();
+    Computer compObj; 
+    compObj.start();
 }
